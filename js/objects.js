@@ -68,7 +68,7 @@ pipeOneTop.sourceHeight = 321;
 pipeOneTop.width = 66;
 pipeOneTop.height = 321;
 pipeOneTop.x = canvas.width;
-pipeOneTop.y = Math.random() + (-255 + 355) - 255;
+pipeOneTop.y = Math.random() + (-260 + 360) - 260;
 sprites.push(pipeOneTop);
 
 var pipeOneBot = Object.create(spriteObject);
@@ -79,7 +79,7 @@ pipeOneBot.sourceHeight = 321;
 pipeOneBot.width = 66;
 pipeOneBot.height = 321;
 pipeOneBot.x = canvas.width;
-pipeOneBot.y = pipeOneTop.y + pipeOneTop.height + 118;
+pipeOneBot.y = pipeOneTop.y + pipeOneTop.height + 124;
 sprites.push(pipeOneBot);
 
 var pipeTwoTop = Object.create(spriteObject);
@@ -89,7 +89,7 @@ pipeTwoTop.sourceHeight = 321;
 pipeTwoTop.width = 66;
 pipeTwoTop.height = 321;
 pipeTwoTop.x = canvas.width + 225;
-pipeTwoTop.y = Math.random() + (-255 + 355) - 255;
+pipeTwoTop.y = Math.random() + (-260 + 360) - 260;
 sprites.push(pipeTwoTop);
 
 var pipeTwoBot = Object.create(spriteObject);
@@ -100,7 +100,7 @@ pipeTwoBot.sourceHeight = 321;
 pipeTwoBot.width = 66;
 pipeTwoBot.height = 321;
 pipeTwoBot.x = canvas.width + 225;
-pipeTwoBot.y = pipeTwoTop.y + pipeTwoTop.height + 118;
+pipeTwoBot.y = pipeTwoTop.y + pipeTwoTop.height + 124;
 sprites.push(pipeTwoBot);
 
 var pipeThreeTop = Object.create(spriteObject);
@@ -110,7 +110,7 @@ pipeThreeTop.sourceHeight = 321;
 pipeThreeTop.width = 66;
 pipeThreeTop.height = 321;
 pipeThreeTop.x = canvas.width + 450;
-pipeThreeTop.y = Math.random() + (-255 + 355) - 255;
+pipeThreeTop.y = Math.random() + (-260 + 360) - 260;
 sprites.push(pipeThreeTop);
 
 var pipeThreeBot = Object.create(spriteObject);
@@ -121,7 +121,7 @@ pipeThreeBot.sourceHeight = 321;
 pipeThreeBot.width = 66;
 pipeThreeBot.height = 321;
 pipeThreeBot.x = canvas.width + 450;
-pipeThreeBot.y = pipeThreeTop.y + pipeThreeTop.height + 118;
+pipeThreeBot.y = pipeThreeTop.y + pipeThreeTop.height + 124;
 sprites.push(pipeThreeBot);
 
 //The floor

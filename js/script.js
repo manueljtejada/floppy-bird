@@ -65,9 +65,9 @@ function update() {
   //The animation loop
   requestAnimationFrame(update, canvas);
 
-  pipeOneBot.y = pipeOneTop.y + pipeOneTop.height + 118;
-  pipeTwoBot.y = pipeTwoTop.y + pipeTwoTop.height + 118;
-  pipeThreeBot.y = pipeThreeTop.y + pipeThreeTop.height + 118;
+  pipeOneBot.y = pipeOneTop.y + pipeOneTop.height + 124;
+  pipeTwoBot.y = pipeTwoTop.y + pipeTwoTop.height + 124;
+  pipeThreeBot.y = pipeThreeTop.y + pipeThreeTop.height + 124;
 
   //Change what the game is doing based on the game state
   switch (gameState) {
@@ -82,10 +82,6 @@ function update() {
 
   //Render the game
   draw();
-}
-
-function endGame() {
-  gameOver.visible = true;
 }
 
 function playGame() {
@@ -185,27 +181,22 @@ function playGame() {
   }
 
   // Detect collision
-  if (sprites.length !== 0) {
-    for (var i = 0; i < sprites.length; i++) {
-      var sprite = sprites[i];
-      if (sprite.visible) {
-        // Check to see if they collide...
-
-        if (hitTestCollision(bird, pipeOneTop) || hitTestCollision(bird, pipeOneBot) || hitTestCollision(bird, pipeTwoTop) || hitTestCollision(bird, pipeTwoBot) || hitTestCollision(bird, pipeThreeTop) || hitTestCollision(bird, pipeThreeBot)) {
-          console.log("Collision");
-          gameState = OVER;
-          deadSound.currentTime = 0;
-          deadSound.play();
-        }
-        if (bird.y + bird.height == floor.y || bird.y + bird.height == floorTwo.y) {
-          console.log("Hit floor!");
-          gameState = OVER;
-          deadSound.currentTime = 0;
-          deadSound.play();
-        }
-      }
+    if (hitTestCollision(bird, pipeOneTop) || hitTestCollision(bird, pipeOneBot) || hitTestCollision(bird, pipeTwoTop) || hitTestCollision(bird, pipeTwoBot) || hitTestCollision(bird, pipeThreeTop) || hitTestCollision(bird, pipeThreeBot)) {
+      console.log("Collision");
+      gameState = OVER;
+      deadSound.currentTime = 0;
+      deadSound.play();
     }
-  }
+    if (bird.y + bird.height == floor.y || bird.y + bird.height == floorTwo.y) {
+      console.log("Hit floor!");
+      gameState = OVER;
+      deadSound.currentTime = 0;
+      deadSound.play();
+    }
+}
+
+function endGame() {
+  gameOver.visible = true;
 }
 
 function draw() {
