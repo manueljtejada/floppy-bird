@@ -16,19 +16,18 @@ var SPACEBAR = 32;
 var moveUp = false;
 
 //Add keyboard listeners
-window.addEventListener("keypress", function(event) {
-  switch (event.keyCode) {
-    case SPACEBAR:
-      moveUp = true;
-      break;
+var lastEvent;
+var heldKeys = {};
+window.addEventListener("keydown", function(event) {
+  if (event.keyCode == SPACEBAR) {
+    moveUp = true;
   }
+
 }, false);
 
 window.addEventListener("keyup", function(event) {
-  switch (event.keyCode) {
-    case SPACEBAR:
-      moveUp = false;
-      break;
+  if (event.keyCode == SPACEBAR) {
+    moveUp = false;
   }
 }, false);
 
@@ -87,7 +86,6 @@ function update() {
 
 function endGame() {
   gameOver.visible = true;
-  playAgain.visible = true;
 }
 
 function playGame() {
@@ -98,9 +96,11 @@ function playGame() {
     bird.gravity = 0;
     bird.friction = 1;
     bird.jump = -2.6;
+    jumpSound.currentTime = 0;
+    jumpSound.play();
   }
 
-  //Set the bird's acceleration, friction and gravity 
+  //Set the bird's acceleration, friction and gravity
   //to zero if none of the keys are being pressed
   if (!moveUp) {
     bird.accelerationY = 0;
@@ -191,13 +191,17 @@ function playGame() {
       if (sprite.visible) {
         // Check to see if they collide...
 
-        if (hitTestCollision(bird, pipeOneTop) || hitTestCollision(bird, pipeOneBot) || hitTestCollision(bird, pipeTwoTop) || hitTestCollision(bird, pipeTwoBot) || hitTestCollision(bird, pipeThreeTop) || hitTestCollision(bird, pipeThreeBot) ) {
+        if (hitTestCollision(bird, pipeOneTop) || hitTestCollision(bird, pipeOneBot) || hitTestCollision(bird, pipeTwoTop) || hitTestCollision(bird, pipeTwoBot) || hitTestCollision(bird, pipeThreeTop) || hitTestCollision(bird, pipeThreeBot)) {
           console.log("Collision");
           gameState = OVER;
+          deadSound.currentTime = 0;
+          deadSound.play();
         }
         if (bird.y + bird.height == floor.y || bird.y + bird.height == floorTwo.y) {
           console.log("Hit floor!");
           gameState = OVER;
+          deadSound.currentTime = 0;
+          deadSound.play();
         }
       }
     }

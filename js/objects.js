@@ -168,3 +168,12 @@ playAgain.x = (canvas.width - playAgain.width) / 2;
 playAgain.y = (canvas.height - playAgain.height) / 2;
 playAgain.visible = false;
 sprites.push(playAgain);
+
+// Audio
+var deadSound = document.querySelector("#deadSound");
+deadSound.load();
+// assetsToLoad.push(deadSound);
+
+var jumpSound = document.querySelector("#jumpSound");
+jumpSound.load();
+// assetsToLoad.push(jumpSound);
